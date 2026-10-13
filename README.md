@@ -129,7 +129,7 @@ Healthcare and safety-critical industrial systems should be presented only as tr
 
 ---
 
-# 5. External Academic Benchmark
+# 4. External Academic Benchmark
 
 The proposed scope was compared with current Master's-level IoT, embedded-systems, and environmental-monitoring courses at other universities.
 
@@ -144,7 +144,7 @@ Additional supporting comparisons are provided by:
 4. **ETH Zürich — Enabling Smart and Low Power IoT Sensor Nodes**
 5. **University of Bologna — Internet of Things**
 
-## 3.1 University of Southampton — Foundations of Embedded IoT Systems
+## 4.1 University of Southampton — Foundations of Embedded IoT Systems
 
 The University of Southampton's Level-7 module **Foundations of Embedded IoT Systems** has a published total workload of **150 hours**.
 
@@ -202,7 +202,7 @@ The proposed HSRW module is comparatively stronger in:
 
 The two curricula therefore overlap strongly in **embedded processing, low-power design, communication, and system reasoning**, while placing different emphasis on the physical measurement and data-infrastructure ends of the system.
 
-## 3.2 University of Genoa — Distributed Electronic Systems and Technologies for Environmental Monitoring
+## 4.2 University of Genoa — Distributed Electronic Systems and Technologies for Environmental Monitoring
 
 The University of Genoa offers a **5-credit Master's module** specifically focused on distributed electronic systems and technologies for environmental monitoring.
 
@@ -238,7 +238,7 @@ The proposed HSRW course follows a similar physical-to-digital progression in it
 
 Genoa therefore provides a useful benchmark for the **INPUT / measurement chain**, while Southampton provides a particularly strong benchmark for the **PROCESSING & COMMUNICATION** portion.
 
-## 3.3 Hochschule Osnabrück — Internet of Things
+## 4.3 Hochschule Osnabrück — Internet of Things
 
 Hochschule Osnabrück's Master's module **Internet der Dinge** is worth **5 ECTS** with a total workload of **150 hours**.
 
@@ -783,6 +783,8 @@ The lecture then introduces ways of overcoming limited MCU resources:
 
 A major secondary learning outcome is **datasheet literacy**.
 
+Students are also introduced to the common pattern of configuring peripherals through device addresses, register addresses, and binary or hexadecimal control values. These values may contain bit fields for identifiers, modes, channels, or enable flags and should be represented in software using meaningful constants, enumerations (`enum`), or bit masks rather than unexplained numeric values.
+
 Students learn where to find:
 
 - operating voltage;
@@ -1009,6 +1011,9 @@ $$
 D = \frac{t_{\text{on}}}{T}
 $$
 
+
+
+
 The same concept is applied to:
 
 - LED intensity;
@@ -1016,6 +1021,13 @@ The same concept is applied to:
 - motor power;
 - heating;
 - controlled startup.
+
+Where appropriate, the lecture briefly compares **PWM generated directly by a microcontroller timer peripheral** with **PWM produced by an external PWM-controller IC configured through I²C or SPI**. Students see how serial configuration data may contain an **identifier/address, message or payload, and optional framing/error-check information**, with register, channel, mode, and duty-cycle values often represented in binary or hexadecimal.
+
+Meaningful symbolic names using C enumerations (`enum`), constants, or bit masks should be used so that identifiers, channels, modes, and duty-cycle settings remain readable rather than appearing as unexplained numeric values.
+
+This reinforces the register-configuration concepts introduced in Week 4 and shows how dedicated hardware can generate PWM autonomously once configured.
+
 
 The watchdog is presented through a practical question:
 
